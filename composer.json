@@ -1,0 +1,18 @@
+{
+    "name": "gabri/estrutura-api",
+    "autoload": {
+        "psr-4": {
+            "Gabri\\EstruturaApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "GabrielDSant",
+            "email": "gabrielbiel1597533@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.6"
+    }
+}

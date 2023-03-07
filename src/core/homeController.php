@@ -4,11 +4,21 @@ require __DIR__ . '/../../vendor/autoload.php';
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+
 class HelloController {
-    public static function hello(Request $request, Response $response)  {
+
+    private $request;
+    private $response;
+
+    public function __construct(Request $request, Response $response) {
+        $this->request = $request;
+        $this->response = $response;
+    }
+    
+    public static function hello($request, $response)  {
         echo "<pre>";
-        var_dump($request);
-        $response->getBody()->write('Hello World');
+        $args = $request->getParsedBody();
+        $response->getBody()->write($args['Doidera']);
         return $response;
     }
 }

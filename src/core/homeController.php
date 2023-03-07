@@ -16,10 +16,12 @@ class HelloController {
     }
     
     public static function hello($request, $response)  {
-        echo "<pre>";
-        $args = $request->getParsedBody();
-        $response->getBody()->write($args['Doidera']);
-        return $response;
+        $args = json_decode($request->getBody(), true);
+
+        $response->getBody()->write(json_encode($args));
+
+        return $response
+            ->withHeader('Content-Type', 'application/json');
     }
 }
 
